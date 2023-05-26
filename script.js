@@ -2,6 +2,7 @@
 var newDate = dayjs().format("dddd, MMMM D, YYYY");
 $('#newDate').text(newDate);
 
+
 // click save botton function
 $(document).ready(function () {
   $('.saveBtn').on('click', function () {
@@ -10,8 +11,7 @@ $(document).ready(function () {
     var todo = $(this).siblings(".description").val(); 
     localStorage.setItem(time,todo);
   });
-  // display value to page
-  $(this).siblings(".description").val(localStorage.getItem($(this).parent().attr("id")));
+
 
   // 
   function newHour() {
@@ -29,7 +29,19 @@ $(document).ready(function () {
       }
     });
   }
+    // display value to page
+  $(this).siblings(".description").val(localStorage.getItem($(this).parent().attr("id")));
 
+  // refresh and still there
+  $('#hour-9 .description').val(localStorage.getItem('hour-9'));
+  $('#hour-10 .description').val(localStorage.getItem('hour-10'));
+  $('#hour-11 .description').val(localStorage.getItem('hour-11'));
+  $('#hour-12 .description').val(localStorage.getItem('hour-12'));
+  $('#hour-13 .description').val(localStorage.getItem('hour-13'));
+  $('#hour-14 .description').val(localStorage.getItem('hour-14'));
+  $('#hour-15 .description').val(localStorage.getItem('hour-15'));
+  $('#hour-16 .description').val(localStorage.getItem('hour-16'));
+  $('#hour-17 .description').val(localStorage.getItem('hour-17'));
   // refresh the time every 30s to compair again
   newHour();
   setInterval(newHour, 30000);
